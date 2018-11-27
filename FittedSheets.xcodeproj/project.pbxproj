@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		7E0EF77921ADA04700491AAA /* fts_cross_custom_small_button_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0EF77821ADA04700491AAA /* fts_cross_custom_small_button_new.png */; };
+		7E0EF78321AE04EF00491AAA /* FittedSheets_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E0EF78121AE04EF00491AAA /* FittedSheets_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E0EF78621AE04EF00491AAA /* FittedSheets_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E0EF77F21AE04EF00491AAA /* FittedSheets_iOS.framework */; };
+		7E0EF78721AE04EF00491AAA /* FittedSheets_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E0EF77F21AE04EF00491AAA /* FittedSheets_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7E0EF78C21AE050B00491AAA /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84FF4B02135BE1A00248951 /* UIViewControllerExtension.swift */; };
+		7E0EF78D21AE050E00491AAA /* InitialTouchPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84FF4AE2134A95300248951 /* InitialTouchPanGestureRecognizer.swift */; };
+		7E0EF78E21AE051100491AAA /* SheetSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84FF4AA21348A2900248951 /* SheetSize.swift */; };
+		7E0EF78F21AE051500491AAA /* Yalta.swift in Sources */ = {isa = PBXBuildFile; fileRef = F803419C212F208300EAD717 /* Yalta.swift */; };
+		7E0EF79021AE051800491AAA /* SheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8034198212F15B600EAD717 /* SheetViewController.swift */; };
+		7E0EF79121AE051F00491AAA /* fts_cross_custom_small_button_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0EF77821ADA04700491AAA /* fts_cross_custom_small_button_new.png */; };
 		F8034165212625DD00EAD717 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8034164212625DD00EAD717 /* AppDelegate.swift */; };
 		F8034167212625DD00EAD717 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8034166212625DD00EAD717 /* ViewController.swift */; };
 		F803416A212625DD00EAD717 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8034168212625DD00EAD717 /* Main.storyboard */; };
@@ -24,6 +33,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		7E0EF78421AE04EF00491AAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8034159212625DD00EAD717 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E0EF77E21AE04EF00491AAA;
+			remoteInfo = "FittedSheets-iOS";
+		};
 		F8034176212625DF00EAD717 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F8034159212625DD00EAD717 /* Project object */;
@@ -40,8 +56,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7E0EF78B21AE04EF00491AAA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7E0EF78721AE04EF00491AAA /* FittedSheets_iOS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		7E0EF77821ADA04700491AAA /* fts_cross_custom_small_button_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fts_cross_custom_small_button_new.png; sourceTree = "<group>"; };
+		7E0EF77F21AE04EF00491AAA /* FittedSheets_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FittedSheets_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E0EF78121AE04EF00491AAA /* FittedSheets_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FittedSheets_iOS.h; sourceTree = "<group>"; };
+		7E0EF78221AE04EF00491AAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8034161212625DD00EAD717 /* FittedSheets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FittedSheets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8034164212625DD00EAD717 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8034166212625DD00EAD717 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,10 +98,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7E0EF77C21AE04EF00491AAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F803415E212625DD00EAD717 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E0EF78621AE04EF00491AAA /* FittedSheets_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +138,15 @@
 			path = Ressources;
 			sourceTree = "<group>";
 		};
+		7E0EF78021AE04EF00491AAA /* FittedSheets-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				7E0EF78121AE04EF00491AAA /* FittedSheets_iOS.h */,
+				7E0EF78221AE04EF00491AAA /* Info.plist */,
+			);
+			path = "FittedSheets-iOS";
+			sourceTree = "<group>";
+		};
 		F8034158212625DD00EAD717 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +154,7 @@
 				F8034163212625DD00EAD717 /* FittedSheets */,
 				F8034178212625DF00EAD717 /* FittedSheetsTests */,
 				F8034183212625DF00EAD717 /* FittedSheetsUITests */,
+				7E0EF78021AE04EF00491AAA /* FittedSheets-iOS */,
 				F8034162212625DD00EAD717 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -114,6 +165,7 @@
 				F8034161212625DD00EAD717 /* FittedSheets.app */,
 				F8034175212625DF00EAD717 /* FittedSheetsTests.xctest */,
 				F8034180212625DF00EAD717 /* FittedSheetsUITests.xctest */,
+				7E0EF77F21AE04EF00491AAA /* FittedSheets_iOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -166,7 +218,36 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		7E0EF77A21AE04EF00491AAA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E0EF78321AE04EF00491AAA /* FittedSheets_iOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		7E0EF77E21AE04EF00491AAA /* FittedSheets-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E0EF78A21AE04EF00491AAA /* Build configuration list for PBXNativeTarget "FittedSheets-iOS" */;
+			buildPhases = (
+				7E0EF77A21AE04EF00491AAA /* Headers */,
+				7E0EF77B21AE04EF00491AAA /* Sources */,
+				7E0EF77C21AE04EF00491AAA /* Frameworks */,
+				7E0EF77D21AE04EF00491AAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FittedSheets-iOS";
+			productName = "FittedSheets-iOS";
+			productReference = 7E0EF77F21AE04EF00491AAA /* FittedSheets_iOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		F8034160212625DD00EAD717 /* FittedSheets */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F8034189212625DF00EAD717 /* Build configuration list for PBXNativeTarget "FittedSheets" */;
@@ -174,10 +255,12 @@
 				F803415D212625DD00EAD717 /* Sources */,
 				F803415E212625DD00EAD717 /* Frameworks */,
 				F803415F212625DD00EAD717 /* Resources */,
+				7E0EF78B21AE04EF00491AAA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7E0EF78521AE04EF00491AAA /* PBXTargetDependency */,
 			);
 			name = FittedSheets;
 			productName = FittedSheets;
@@ -230,6 +313,9 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Gordon Tucker";
 				TargetAttributes = {
+					7E0EF77E21AE04EF00491AAA = {
+						CreatedOnToolsVersion = 10.1;
+					};
 					F8034160212625DD00EAD717 = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
@@ -261,11 +347,20 @@
 				F8034160212625DD00EAD717 /* FittedSheets */,
 				F8034174212625DF00EAD717 /* FittedSheetsTests */,
 				F803417F212625DF00EAD717 /* FittedSheetsUITests */,
+				7E0EF77E21AE04EF00491AAA /* FittedSheets-iOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7E0EF77D21AE04EF00491AAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E0EF79121AE051F00491AAA /* fts_cross_custom_small_button_new.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F803415F212625DD00EAD717 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -294,6 +389,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7E0EF77B21AE04EF00491AAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E0EF78D21AE050E00491AAA /* InitialTouchPanGestureRecognizer.swift in Sources */,
+				7E0EF79021AE051800491AAA /* SheetViewController.swift in Sources */,
+				7E0EF78F21AE051500491AAA /* Yalta.swift in Sources */,
+				7E0EF78E21AE051100491AAA /* SheetSize.swift in Sources */,
+				7E0EF78C21AE050B00491AAA /* UIViewControllerExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F803415D212625DD00EAD717 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -328,6 +435,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7E0EF78521AE04EF00491AAA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7E0EF77E21AE04EF00491AAA /* FittedSheets-iOS */;
+			targetProxy = 7E0EF78421AE04EF00491AAA /* PBXContainerItemProxy */;
+		};
 		F8034177212625DF00EAD717 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F8034160212625DD00EAD717 /* FittedSheets */;
@@ -360,6 +472,67 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7E0EF78821AE04EF00491AAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9GBY47427B;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "FittedSheets-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sweefties.FittedSheets-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7E0EF78921AE04EF00491AAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9GBY47427B;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "FittedSheets-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sweefties.FittedSheets-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		F8034187212625DF00EAD717 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -477,6 +650,7 @@
 		F803418A212625DF00EAD717 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9GBY47427B;
@@ -495,6 +669,7 @@
 		F803418B212625DF00EAD717 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9GBY47427B;
@@ -595,6 +770,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7E0EF78A21AE04EF00491AAA /* Build configuration list for PBXNativeTarget "FittedSheets-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E0EF78821AE04EF00491AAA /* Debug */,
+				7E0EF78921AE04EF00491AAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F803415C212625DD00EAD717 /* Build configuration list for PBXProject "FittedSheets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
