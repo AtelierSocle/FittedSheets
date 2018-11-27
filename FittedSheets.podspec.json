@@ -19,7 +19,6 @@
   "requires_arc": true,
   "source_files": "FittedSheets/Pod/**/*.swift",
   "resources": "FittedSheets/Assets.xcassets/**/*.{png}",
-  "resource_bundles": { "FittedSheets": "FittedSheets/Assets.xcassets/*.png" },
   "frameworks": [],
   "swift_version": "4.2"
 }
