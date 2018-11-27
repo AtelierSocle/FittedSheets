@@ -18,7 +18,8 @@
   "social_media_url": "https://twitter.com/tuckeredoutfmly",
   "requires_arc": true,
   "source_files": "FittedSheets/Pod/**/*.swift",
-  "resource_bundles": { "FittedSheets": "FittedSheets/Assets/*.png" },
+  "resources": "FittedSheets/Assets.xcassets/**/*.{png}",
+  "resource_bundles": { "FittedSheets": "FittedSheets/Assets.xcassets/*.png" },
   "frameworks": [],
   "swift_version": "4.2"
 }
