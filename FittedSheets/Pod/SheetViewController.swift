@@ -28,7 +28,7 @@ public class SheetViewController: UIViewController {
     /// with close button as `Bool`, default is `true`
     public var withCloseButton: Bool = true
     /// close image string value as `String`, default is `fts_cross_custom_small_button`
-    public var closeImage: String = "fts_cross_custom_small_button"
+    public var closeImage: String = "fts_cross_custom_small_button_new"
     /// close image tint color as `UIColor`, default is `UIColor(white: 0.868, alpha: 0.84)`, could be better to use `.lightGray`
     public var closeImageTintColor: UIColor = UIColor(white: 0.868, alpha: 0.84)
     /// close button background color as `UIColor` optional, default is `nil`
@@ -309,7 +309,7 @@ public class SheetViewController: UIViewController {
         cross.layer.masksToBounds = true
         // add image
         let bundle = Bundle(for: classForCoder.self)
-        let image = UIImage(named: closeImage, in: bundle, compatibleWith: nil)
+        let image = UIImage(named: closeImage, in: bundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         cross.setImage(image, for: .normal)
         cross.imageView?.tintColor = closeImageTintColor
         if let color = closeBackgroundColor {

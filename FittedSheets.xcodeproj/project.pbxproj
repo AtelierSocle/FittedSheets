@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E0EF77921ADA04700491AAA /* fts_cross_custom_small_button_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0EF77821ADA04700491AAA /* fts_cross_custom_small_button_new.png */; };
 		F8034165212625DD00EAD717 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8034164212625DD00EAD717 /* AppDelegate.swift */; };
 		F8034167212625DD00EAD717 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8034166212625DD00EAD717 /* ViewController.swift */; };
 		F803416A212625DD00EAD717 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8034168212625DD00EAD717 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E0EF77821ADA04700491AAA /* fts_cross_custom_small_button_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fts_cross_custom_small_button_new.png; sourceTree = "<group>"; };
 		F8034161212625DD00EAD717 /* FittedSheets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FittedSheets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8034164212625DD00EAD717 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8034166212625DD00EAD717 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E0EF77721AD9FC200491AAA /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				7E0EF77821ADA04700491AAA /* fts_cross_custom_small_button_new.png */,
+			);
+			path = Ressources;
+			sourceTree = "<group>";
+		};
 		F8034158212625DD00EAD717 = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +154,7 @@
 		F8034197212F154C00EAD717 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
+				7E0EF77721AD9FC200491AAA /* Ressources */,
 				F8034198212F15B600EAD717 /* SheetViewController.swift */,
 				F803419C212F208300EAD717 /* Yalta.swift */,
 				F84FF4AA21348A2900248951 /* SheetSize.swift */,
@@ -259,6 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E0EF77921ADA04700491AAA /* fts_cross_custom_small_button_new.png in Resources */,
 				F803416F212625DF00EAD717 /* LaunchScreen.storyboard in Resources */,
 				F803416C212625DF00EAD717 /* Assets.xcassets in Resources */,
 				F803416A212625DD00EAD717 /* Main.storyboard in Resources */,
