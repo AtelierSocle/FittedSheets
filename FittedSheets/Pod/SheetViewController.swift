@@ -25,6 +25,33 @@ public class SheetViewController: UIViewController {
     /// If true, the bottom safe area will have a blur effect over it. This must be set before the sheet view controller loads for it to function properly
     public var blurBottomSafeArea: Bool = true
     
+    /// with close button as `Bool`, default is `true`
+    public var withCloseButton: Bool = true
+    /// close image string value as `String`, default is `fts_cross_custom_small_button`
+    public var closeImage: String = "fts_cross_custom_small_button"
+    /// close image tint color as `UIColor`, default is `UIColor(white: 0.868, alpha: 0.84)`, could be better to use `.lightGray`
+    public var closeImageTintColor: UIColor = UIColor(white: 0.868, alpha: 0.84)
+    /// close button background color as `UIColor` optional, default is `nil`
+    public var closeBackgroundColor: UIColor? = nil
+    /// corner radii as `CGSize`, default is `20.0, 20.0`
+    public var cornerRadii: CGSize = CGSize(width: 20.0, height: 20.0)
+    /// custom top inset as `CGFloat`, default is `24.0`
+    public var customTopInset: CGFloat = 24.0
+    /// custom top margin as `CGFloat`, default is `-24.0`
+    public var customTop: CGFloat = -24.0
+    /// top gap as `(Bool, CGFloat)`, default is `(false, 0.0)`
+    public var topGap: (Bool, CGFloat) = (true, -28.0)
+    /// update parent status bar appearance option as `Bool`, default is `false`
+    public var updateParentStatusBarAppearance: Bool = false
+    
+    /// run as `Bool`, default is `false`
+    public var run: Bool = false
+    /// is run as `Bool`, getter/setter
+    public var isRun: Bool {
+        get { return run }
+        set(newValue){ self.run = newValue }
+    }
+    
     /// The current preferred container size
     private var containerSize: SheetSize = .fixed(300)
     /// The current actual container size
@@ -54,7 +81,7 @@ public class SheetViewController: UIViewController {
         if #available(iOS 11.0, *) {
             inserts = UIApplication.shared.keyWindow?.safeAreaInsets ?? inserts
         }
-        inserts.top = max(inserts.top, 20)
+        inserts.top = max(inserts.top, customTopInset)//20 by default
         return inserts
     }
     
@@ -75,8 +102,11 @@ public class SheetViewController: UIViewController {
             self.setSizes(sizes)
         }
         self.modalPresentationStyle = .overFullScreen
+        // this is required to update status bar style with non-fullscreen.
+        self.modalPresentationCapturesStatusBarAppearance = true
     }
     
+    /// called after the controller's view is loaded into memory.
     public override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -95,11 +125,36 @@ public class SheetViewController: UIViewController {
         self.setUpChildViewController()
         
         self.setUpPullBarView()
-        
+        if withCloseButton {
+            self.setUpCrossButton()
+        }
+        // add keyboard notfications observers
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardShown(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDismissed(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    /// status bar style setter as `UIStatusBarStyle`, default is `.lightContent`
+    var statusBarStyle: UIStatusBarStyle = .lightContent {
+        didSet(newValue) {
+            if updateParentStatusBarAppearance {
+                parent?.setNeedsStatusBarAppearanceUpdate()
+            }
+            setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+    
+    /// preferred status bar style as `UIStatusBarStyle`
+    override public var preferredStatusBarStyle: UIStatusBarStyle {
+        return statusBarStyle
+    }
+    
+    /// notifies the view controller that its view is about to be removed from a view hierarchy.
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        statusBarStyle = .default
+    }
+    
+    /// notifies the view controller that its view is about to be added to a view hierarchy.
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseOut], animations: { [weak self] in
@@ -107,6 +162,7 @@ public class SheetViewController: UIViewController {
             _self.view.backgroundColor = _self.overlayColor
             _self.containerView.transform = CGAffineTransform.identity
             _self.actualContainerSize = .fixed(_self.containerView.frame.height)
+            _self.statusBarStyle = .lightContent
         }, completion: nil)
     }
     
@@ -126,7 +182,7 @@ public class SheetViewController: UIViewController {
             self.childViewController.view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         } else {
             // iOS 10 doesn't have the better rounded corner feature so we need to fake it
-            let path = UIBezierPath(roundedRect: self.childViewController.view.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 10, height: 10))
+            let path = UIBezierPath(roundedRect: self.childViewController.view.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: cornerRadii)
             let maskLayer = CAShapeLayer()
             maskLayer.path = path.cgPath
             self.childViewController.view.layer.mask = maskLayer
@@ -166,19 +222,22 @@ public class SheetViewController: UIViewController {
         self.childViewController.willMove(toParent: self)
         self.addChild(self.childViewController)
         let bottomInset = self.safeAreaInsets.bottom
+        
         self.containerView.addSubview(self.childViewController.view) { (subview) in
+            
             subview.edges(.left, .right).pinToSuperview()
-            if self.adjustForBottomSafeArea {
-                subview.bottom.pinToSuperview(inset: bottomInset, relation: .equal)
-            } else {
-                subview.bottom.pinToSuperview()
+            
+            switch self.adjustForBottomSafeArea {
+            case true: subview.bottom.pinToSuperview(inset: bottomInset, relation: .equal)
+            case false: subview.bottom.pinToSuperview()
             }
-            subview.top.pinToSuperview(inset: 24, relation: .equal)
+            
+            subview.top.pinToSuperview(inset: customTop, relation: .equal)//TODO: - change inset value for top inset (like -24) default is "24"
         }
         if #available(iOS 11.0, *) {
             self.childViewController.view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         }
-        self.childViewController.view.layer.cornerRadius = 10
+        self.childViewController.view.layer.cornerRadius = cornerRadii.width
         self.childViewController.view.layer.masksToBounds = true
         self.childViewController.didMove(toParent: self)
         
@@ -216,19 +275,47 @@ public class SheetViewController: UIViewController {
         let pullBarView = UIView(frame: CGRect.zero)
         self.containerView.addSubview(pullBarView) { (subview) in
             subview.edges(.top, .left, .right).pinToSuperview()
-            subview.height.set(24)
+            subview.height.set(customTopInset)
         }
         self.pullBarView = pullBarView
         
         let grabView = UIView(frame: CGRect.zero)
         pullBarView.addSubview(grabView) { (subview) in
-            subview.centerY.alignWithSuperview()
+            switch topGap.0 {
+            case true: subview.centerY.alignWithSuperview(offset: topGap.1, relation: .equal)
+            case false: subview.centerY.alignWithSuperview()
+            }
             subview.centerX.alignWithSuperview()
             subview.size.set(CGSize(width: 50, height: 6))
         }
         grabView.layer.cornerRadius = 3
         grabView.layer.masksToBounds = true
         grabView.backgroundColor = UIColor(white: 0.868, alpha: 1)
+    }
+    
+    
+    /// set up cross button
+    private func setUpCrossButton() {
+        let cross = UIButton(type: .custom)
+        cross.frame = CGRect.zero
+        self.containerView.addSubview(cross) { (subview) in
+            subview.top.pin(to: self.pullBarView.layoutMarginsGuide, inset: -15)
+            //subview.right.pin(to: self.pullBarView.layoutMarginsGuide, inset: 7)// default way
+            subview.right.pin(to: self.childViewController.view.al.right.item, inset: 15)// pinned fixed way
+            
+            subview.size.set(CGSize.init(width: 26, height: 26))
+        }
+        cross.layer.cornerRadius = 13
+        cross.layer.masksToBounds = true
+        // add image
+        let bundle = Bundle(for: classForCoder.self)
+        let image = UIImage(named: closeImage, in: bundle, compatibleWith: nil)
+        cross.setImage(image, for: .normal)
+        cross.imageView?.tintColor = closeImageTintColor
+        if let color = closeBackgroundColor {
+            cross.backgroundColor = color
+        }
+        cross.addTarget(self, action: #selector(dismissTapped), for: .touchUpInside)
     }
     
     @objc func dismissTapped() {
@@ -380,12 +467,14 @@ public class SheetViewController: UIViewController {
                 let insets = self.safeAreaInsets
                 return UIScreen.main.bounds.height - insets.top - 20
             case .halfScreen:
-                return (UIScreen.main.bounds.height) / 2 + 24
+                return (UIScreen.main.bounds.height) / 2 + customTopInset
         }
     }
 }
 
 extension SheetViewController: UIGestureRecognizerDelegate {
+    
+    /// asks the delegate if a gesture recognizer should begin interpreting touches.
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         guard let panGestureRecognizer = gestureRecognizer as? InitialTouchPanGestureRecognizer, let childScrollView = self.childScrollView, let point = panGestureRecognizer.initialTouchLocation else { return true }
         
@@ -409,3 +498,67 @@ extension SheetViewController: UIGestureRecognizerDelegate {
         }
     }
 }
+
+
+//extension UIImage {
+//
+//    convenience init?(podAssetName: String) {
+//        let podBundle = Bundle(for: SheetViewController.self)
+//        /// A given class within your Pod framework
+//        guard let url = podBundle.url(forResource: "FittedSheets", withExtension: "bundle")
+//        else { return nil }
+//        self.init(named: podAssetName, in: Bundle(url: url), compatibleWith: nil)
+//    }
+//
+//}
+
+/*
+extension NSLayoutConstraint.Attribute {
+    func toString() -> String {
+        switch self {
+        case .left:
+            return "left"
+        case .right:
+            return "right"
+        case .top:
+            return "top"
+        case .bottom:
+            return "bottom"
+        case .leading:
+            return "leading"
+        case .trailing:
+            return "trailing"
+        case .width:
+            return "width"
+        case .height:
+            return "height"
+        case .centerX:
+            return "centerX"
+        case .centerY:
+            return "centerY"
+        case .lastBaseline:
+            return "lastBaseline"
+        case .firstBaseline:
+            return "firstBaseline"
+        case .leftMargin:
+            return "leftMargin"
+        case .rightMargin:
+            return "rightMargin"
+        case .topMargin:
+            return "topMargin"
+        case .bottomMargin:
+            return "bottomMargin"
+        case .leadingMargin:
+            return "leadingMargin"
+        case .trailingMargin:
+            return "trailingMargin"
+        case .centerXWithinMargins:
+            return "centerXWithinMargins"
+        case .centerYWithinMargins:
+            return "centerYWithinMargins"
+        case .notAnAttribute:
+            return "notAnAttribute"
+        }
+    }
+}
+*/
