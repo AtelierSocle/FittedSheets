@@ -118,10 +118,6 @@ class CustomTableVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected row: \(indexPath.row)")
         presentSheet(true)
-        // test close completion handle
-        /*self.sheetViewController?.closeSheet(completion: {
-            print("selected row: \(indexPath.row)")
-        })*/
     }
     
     @IBAction func presentSheet(_ sender: Any) {
