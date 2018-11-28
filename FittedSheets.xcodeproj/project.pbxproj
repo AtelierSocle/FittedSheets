@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		7E0EF77921ADA04700491AAA /* fts_cross_custom_small_button_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0EF77821ADA04700491AAA /* fts_cross_custom_small_button_new.png */; };
 		7E0EF78321AE04EF00491AAA /* FittedSheets_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E0EF78121AE04EF00491AAA /* FittedSheets_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7E0EF78621AE04EF00491AAA /* FittedSheets_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E0EF77F21AE04EF00491AAA /* FittedSheets_iOS.framework */; };
-		7E0EF78721AE04EF00491AAA /* FittedSheets_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E0EF77F21AE04EF00491AAA /* FittedSheets_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7E0EF78621AE04EF00491AAA /* FittedSheets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E0EF77F21AE04EF00491AAA /* FittedSheets.framework */; };
+		7E0EF78721AE04EF00491AAA /* FittedSheets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E0EF77F21AE04EF00491AAA /* FittedSheets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7E0EF78C21AE050B00491AAA /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84FF4B02135BE1A00248951 /* UIViewControllerExtension.swift */; };
 		7E0EF78D21AE050E00491AAA /* InitialTouchPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84FF4AE2134A95300248951 /* InitialTouchPanGestureRecognizer.swift */; };
 		7E0EF78E21AE051100491AAA /* SheetSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84FF4AA21348A2900248951 /* SheetSize.swift */; };
@@ -63,7 +63,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7E0EF78721AE04EF00491AAA /* FittedSheets_iOS.framework in Embed Frameworks */,
+				7E0EF78721AE04EF00491AAA /* FittedSheets.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,7 +72,7 @@
 
 /* Begin PBXFileReference section */
 		7E0EF77821ADA04700491AAA /* fts_cross_custom_small_button_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fts_cross_custom_small_button_new.png; sourceTree = "<group>"; };
-		7E0EF77F21AE04EF00491AAA /* FittedSheets_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FittedSheets_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E0EF77F21AE04EF00491AAA /* FittedSheets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FittedSheets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E0EF78121AE04EF00491AAA /* FittedSheets_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FittedSheets_iOS.h; sourceTree = "<group>"; };
 		7E0EF78221AE04EF00491AAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8034161212625DD00EAD717 /* FittedSheets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FittedSheets.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,7 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E0EF78621AE04EF00491AAA /* FittedSheets_iOS.framework in Frameworks */,
+				7E0EF78621AE04EF00491AAA /* FittedSheets.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,7 +165,7 @@
 				F8034161212625DD00EAD717 /* FittedSheets.app */,
 				F8034175212625DF00EAD717 /* FittedSheetsTests.xctest */,
 				F8034180212625DF00EAD717 /* FittedSheetsUITests.xctest */,
-				7E0EF77F21AE04EF00491AAA /* FittedSheets_iOS.framework */,
+				7E0EF77F21AE04EF00491AAA /* FittedSheets.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -245,7 +245,7 @@
 			);
 			name = "FittedSheets-iOS";
 			productName = "FittedSheets-iOS";
-			productReference = 7E0EF77F21AE04EF00491AAA /* FittedSheets_iOS.framework */;
+			productReference = 7E0EF77F21AE04EF00491AAA /* FittedSheets.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		F8034160212625DD00EAD717 /* FittedSheets */ = {
@@ -494,7 +494,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sweefties.FittedSheets-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = FittedSheets;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -524,7 +524,7 @@
 				);
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sweefties.FittedSheets-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = FittedSheets;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
