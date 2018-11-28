@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7E0EF77E21AE04EF00491AAA"
-               BuildableName = "FittedSheets_iOS.framework"
+               BuildableName = "FittedSheets.framework"
                BlueprintName = "FittedSheets-iOS"
                ReferencedContainer = "container:FittedSheets.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7E0EF77E21AE04EF00491AAA"
-            BuildableName = "FittedSheets_iOS.framework"
+            BuildableName = "FittedSheets.framework"
             BlueprintName = "FittedSheets-iOS"
             ReferencedContainer = "container:FittedSheets.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7E0EF77E21AE04EF00491AAA"
-            BuildableName = "FittedSheets_iOS.framework"
+            BuildableName = "FittedSheets.framework"
             BlueprintName = "FittedSheets-iOS"
             ReferencedContainer = "container:FittedSheets.xcodeproj">
          </BuildableReference>
