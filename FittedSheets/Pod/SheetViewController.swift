@@ -25,6 +25,9 @@ public class SheetViewController: UIViewController {
     /// If true, the bottom safe area will have a blur effect over it. This must be set before the sheet view controller loads for it to function properly
     public var blurBottomSafeArea: Bool = true
     
+    /// pull tint color as `UIColor`, default is `UIColor(white: 0.868, alpha: 1.0)`, could be better to use `.lightGray`
+    public var pullTintColor: UIColor = UIColor(white: 0.868, alpha: 1.0)
+    
     /// with close button as `Bool`, default is `true`
     public var withCloseButton: Bool = true
     /// close image string value as `String`, default is `fts_cross_custom_small_button`
@@ -290,7 +293,7 @@ public class SheetViewController: UIViewController {
         }
         grabView.layer.cornerRadius = 3
         grabView.layer.masksToBounds = true
-        grabView.backgroundColor = UIColor(white: 0.868, alpha: 1)
+        grabView.backgroundColor = pullTintColor
     }
     
     
@@ -298,6 +301,7 @@ public class SheetViewController: UIViewController {
     private func setUpCrossButton() {
         let cross = UIButton(type: .custom)
         cross.frame = CGRect.zero
+        cross.tag = 254
         self.containerView.addSubview(cross) { (subview) in
             subview.top.pin(to: self.pullBarView.layoutMarginsGuide, inset: -15)
             //subview.right.pin(to: self.pullBarView.layoutMarginsGuide, inset: 7)// default way
